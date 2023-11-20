@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 import React from 'react';
 import RestaurantCard from './restaurantCard';
 
+
 const FeaturedRow = ({ title, description, restaurants }) => {
   return (
     <View style={styles.container}>
@@ -9,14 +10,13 @@ const FeaturedRow = ({ title, description, restaurants }) => {
         <View>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.description}>{description}</Text>
-          
         </View>
         <TouchableOpacity style={styles.seeAllButton}>
           <Text>See All</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView 
-        horizontal 
+      <ScrollView
+        horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
           paddingHorizontal: 15,
@@ -25,10 +25,7 @@ const FeaturedRow = ({ title, description, restaurants }) => {
       >
         {Array.isArray(restaurants) ? (
           restaurants.map((restaurant, index) => (
-            <RestaurantCard
-             item={restaurant}
-             key={index}
-            />
+            <RestaurantCard item={restaurant} key={index} />
           ))
         ) : (
           <Text>No restaurants available</Text>
@@ -38,13 +35,11 @@ const FeaturedRow = ({ title, description, restaurants }) => {
   );
 };
 
-
 export default FeaturedRow;
 
 const styles = StyleSheet.create({
-  // Your styles can go here if needed
   container: {
-    marginBottom: 20, // Add some margin at the bottom
+    marginBottom: 20,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -60,7 +55,5 @@ const styles = StyleSheet.create({
     color: 'gray',
     fontSize: 12,
   },
-  seeAllButton: {
-    // Add styles for the "See All" button if needed
-  },
+  seeAllButton: {},
 });
