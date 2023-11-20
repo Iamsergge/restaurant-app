@@ -2,8 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View, StatusBar, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Icon from 'react-native-feather';
-import { themeColors } from '../theme';
-import Categories from '../components/Categories'
+import { featured, themeColors } from '../theme';
+import Categories from '../components/Categories';
+import FeaturedRow from '../components/featuredRow';
+import RestaurantCard from '../components/restaurantCard';
+
+
+
+
+const categories = [
+  { id: 1, name: 'Category 1', image: require('../assets/images/pizza.png') },
+  { id: 2, name: 'Category 2', image: require('../assets/images/pizza.png') },
+  // Add more categories as needed
+];
+
+
 
 export default function HomeScreen() {
   return (
@@ -30,6 +43,21 @@ export default function HomeScreen() {
       >
         {/* categories */}
         <Categories/>
+
+        {/** featured*/}
+        <View style={{ marginTop: 5 }}>
+  {
+    [featured, featured, featured].map((item, index) => (
+      <FeaturedRow
+        key={index}
+        title={item.title}
+        restaurant={item.restaurants}
+        description={item.description}
+      />
+    ))
+  }
+</View>
+
 
       </ScrollView>
     </SafeAreaView>
